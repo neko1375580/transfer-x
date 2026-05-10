@@ -205,6 +205,7 @@
   .sidebar{
     position:relative;
     width:90%;
+    z-index: 20;
     margin:120px auto 20px;
     left:auto;
     top:auto;
@@ -233,6 +234,8 @@
 
   .card{
     width:92%;
+    position: relative;
+z-index: 1;
     margin:20px auto;
     padding:30px 20px;
   }
@@ -271,6 +274,62 @@
 
   .right{
     width:100%;
+  }
+
+}
+
+@media(max-width:768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .app{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .topPanel{
+    width:95%;
+    left:50%;
+    transform:translateX(-50%);
+    padding:15px;
+  }
+
+  .sidebar{
+    position:relative;
+    width:92%;
+    margin-top:120px;
+
+    display:flex;
+    flex-direction:column;
+
+    left:auto;
+    top:auto;
+  }
+
+  .devices{
+    position:relative;
+    width:92%;
+    left:auto;
+    top:auto;
+    margin:20px auto;
+  }
+
+  .card{
+    width:92%;
+    margin:20px auto;
+    padding:30px 15px;
+  }
+
+  .card h1{
+    font-size:48px;
+    line-height:50px;
+  }
+
+  .qrBox canvas{
+    width:220px !important;
+    height:220px !important;
   }
 
 }
