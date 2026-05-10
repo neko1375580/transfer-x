@@ -182,156 +182,8 @@
     border-right-color: var(--border);
   }
 }
-
-@media(max-width:768px){
-
-  .topPanel{
-    width:95%;
-    left:50%;
-    transform:translateX(-50%);
-    padding:15px;
-    gap:10px;
-  }
-
-  .logo{
-    font-size:22px;
-    line-height:26px;
-  }
-
-  .time{
-    font-size:18px;
-  }
-
-  .sidebar{
-    position:relative;
-    width:90%;
-    z-index: 20;
-    margin:120px auto 20px;
-    left:auto;
-    top:auto;
-    transform:none;
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-
-    padding:20px;
-  }
-
-  .sidebar button{
-    width:100%;
-    font-size:20px;
-    padding:18px;
-  }
-
-  .devices{
-    position:relative;
-    width:90%;
-    left:auto;
-    top:auto;
-    margin:20px auto;
-  }
-
-  .card{
-    width:92%;
-    position: relative;
-z-index: 1;
-    margin:20px auto;
-    padding:30px 20px;
-  }
-
-  .card h1{
-    font-size:58px;
-    line-height:60px;
-  }
-
-  .subtitle{
-    font-size:20px;
-  }
-
-  .qrBox canvas{
-    width:240px !important;
-    height:240px !important;
-  }
-
-  .upload{
-    width:100%;
-    font-size:22px;
-  }
-
-  .stats{
-    flex-direction:column;
-  }
-
-  .stat{
-    width:100%;
-  }
-
-  .file{
-    flex-direction:column;
-    gap:20px;
-  }
-
-  .right{
-    width:100%;
-  }
-
-}
-
-@media(max-width:768px){
-
-  body{
-    overflow-x:hidden;
-  }
-
-  .app{
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .topPanel{
-    width:95%;
-    left:50%;
-    transform:translateX(-50%);
-    padding:15px;
-  }
-
-  .sidebar{
-    position:relative;
-    width:92%;
-    margin-top:120px;
-
-    display:flex;
-    flex-direction:column;
-
-    left:auto;
-    top:auto;
-  }
-
-  .devices{
-    position:relative;
-    width:92%;
-    left:auto;
-    top:auto;
-    margin:20px auto;
-  }
-
-  .card{
-    width:92%;
-    margin:20px auto;
-    padding:30px 15px;
-  }
-
-  .card h1{
-    font-size:48px;
-    line-height:50px;
-  }
-
-  .qrBox canvas{
-    width:220px !important;
-    height:220px !important;
-  }
-
+.menuBtn{
+  display:none;
 }
 
 @media screen and (max-width:768px){
@@ -345,109 +197,161 @@ z-index: 1;
   }
 
   .app{
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:center !important;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
   }
-
-  .sidebar{
-    position:relative !important;
-    width:92% !important;
-    left:auto !important;
-    top:auto !important;
-    margin-top:120px !important;
-
-    display:flex !important;
-    flex-direction:column !important;
-
-    z-index:999 !important;
-  }
-
-  .devices{
-    position:relative !important;
-    width:92% !important;
-    left:auto !important;
-    top:auto !important;
-    margin:20px auto !important;
-  }
-
-  .card{
-    width:92% !important;
-    margin:20px auto !important;
-    padding:20px !important;
-
-    position:relative !important;
-    z-index:1 !important;
-  }
-
-  .card h1{
-    font-size:42px !important;
-    line-height:46px !important;
-  }
-
-  .topPanel{
-    width:95% !important;
-    left:50% !important;
-    transform:translateX(-50%) !important;
-  }
-
-  .qrBox canvas{
-    width:220px !important;
-    height:220px !important;
-  }
-
-}
-
-.menuBtn{
-  display:none;
-}
-
-@media(max-width:768px){
 
   .menuBtn{
     display:flex;
 
     position:fixed;
-    top:20px;
-    left:20px;
+    top:15px;
+    left:15px;
 
-    width:55px;
-    height:55px;
+    width:50px;
+    height:50px;
 
     border:none;
-    border-radius:16px;
+    border-radius:14px;
 
-    background:rgba(255,255,255,0.1);
+    background:rgba(20,20,40,0.9);
 
     backdrop-filter:blur(20px);
 
     color:white;
-    font-size:28px;
+    font-size:26px;
 
     align-items:center;
     justify-content:center;
 
-    z-index:1000;
+    z-index:3000;
+  }
+
+  .topPanel{
+
+    width:94% !important;
+
+    left:50% !important;
+    transform:translateX(-50%) !important;
+
+    padding:14px !important;
+
+    height:auto !important;
+
+    gap:10px;
+  }
+
+  .logo{
+    font-size:18px !important;
+    line-height:22px !important;
+  }
+
+  .time{
+    font-size:18px !important;
   }
 
   .sidebar{
 
     position:fixed !important;
 
-    left:-320px !important;
+    left:-280px !important;
     top:0 !important;
 
-    width:280px !important;
+    width:240px !important;
     height:100vh !important;
+
+    padding:100px 15px 20px !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+
+    background:rgba(15,15,30,0.96);
+
+    backdrop-filter:blur(20px);
 
     transition:0.4s;
 
-    z-index:999;
-
+    z-index:2000;
   }
 
   .sidebar.mobileOpen{
     left:0 !important;
+  }
+
+  .sidebar button{
+    width:100%;
+  }
+
+  .devices{
+
+    position:relative !important;
+
+    width:92% !important;
+
+    left:auto !important;
+    top:auto !important;
+
+    margin-top:130px !important;
+    margin-bottom:20px !important;
+  }
+
+  .card{
+
+    width:92% !important;
+
+    margin:20px auto !important;
+
+    padding:25px 15px !important;
+
+    position:relative !important;
+
+    z-index:1 !important;
+  }
+
+  .card h1{
+
+    font-size:42px !important;
+
+    line-height:44px !important;
+
+    text-align:center;
+  }
+
+  .subtitle{
+    font-size:16px !important;
+    text-align:center;
+  }
+
+  .qrBox canvas{
+
+    width:220px !important;
+    height:220px !important;
+  }
+
+  .upload{
+
+    width:100% !important;
+
+    font-size:18px !important;
+  }
+
+  .stats{
+    flex-direction:column !important;
+  }
+
+  .stat{
+    width:100% !important;
+  }
+
+  .file{
+    flex-direction:column !important;
+    gap:15px;
+  }
+
+  .right{
+    width:100% !important;
   }
 
 }
