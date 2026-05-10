@@ -1,11 +1,10 @@
 import express from 'express'
 import http from 'http'
 import { Server } from 'socket.io'
-
-const process = globalThis.process
-
 import cors from 'cors'
 import multer from 'multer'
+
+const process = globalThis.process
 
 const app = express()
 
@@ -14,18 +13,26 @@ app.use(cors())
 const server = http.createServer(app)
 
 const io = new Server(server,{
-    cors:{
-        origin:'*'
-    }
+  cors:{
+    origin:'*'
+  }
 })
 
 const storage = multer.memoryStorage()
 
 const upload = multer({
-    storage
+
+  storage,
+
+  limits:{
+    fileSize:1024 * 1024 * 500
+  }
+
 })
 
 let devices = []
+
+let uploadedFiles = []
 
 io.on('connection',(socket)=>{
 
@@ -46,7 +53,15 @@ io.on('connection',(socket)=>{
 
   devices.push(device)
 
-  io.emit('devices',devices)
+  io.emit(
+    'devices',
+    devices
+  )
+
+  socket.emit(
+    'all-files',
+    uploadedFiles
+  )
 
   socket.on('disconnect',()=>{
 
@@ -58,7 +73,10 @@ io.on('connection',(socket)=>{
       item=>item.id !== socket.id
     )
 
-    io.emit('devices',devices)
+    io.emit(
+      'devices',
+      devices
+    )
 
   })
 
@@ -66,34 +84,69 @@ io.on('connection',(socket)=>{
 
 app.post(
   '/upload',
+
   upload.single('file'),
+
   (req,res)=>{
+
+    if(!req.file){
+
+      return res.status(400).json({
+        success:false
+      })
+
+    }
+
+    const fileData = {
+
+      id:Date.now(),
+
+      name:req.file.originalname,
+
+      size:req.file.size,
+
+      type:req.file.mimetype,
+
+      file:req.file.buffer.toString(
+        'base64'
+      )
+
+    }
+
+    uploadedFiles.push(fileData)
 
     console.log(
       'Файл получен:',
       req.file.originalname
     )
 
-    io.emit('new-file',{
-
-        name:req.file.originalname,
-        size:req.file.size
-
-    })
+    io.emit(
+      'new-file',
+      fileData
+    )
 
     res.json({
-        success:true
+      success:true
     })
+
+  }
+
+)
+
+app.get('/files',(req,res)=>{
+
+  res.json(uploadedFiles)
 
 })
 
-const PORT = process.env.PORT || 3000
+const PORT =
+  process.env.PORT || 3000
 
 server.listen(PORT,()=>{
 
-    console.log(
-      'SERVER STARTED ON',
-      PORT
-    )
+  console.log(
+    'SERVER STARTED ON',
+    PORT
+  )
 
 })
