@@ -27,8 +27,11 @@ function App(){
   const [tab,setTab] = useState('transfer')
 
   const [sounds,setSounds] = useState(true)
+  
   const [autoSync,setAutoSync] = useState(false)
-
+  
+  const [mobileMenu,setMobileMenu] = useState(false)
+  
   const [loading,setLoading] = useState(true)
 
   useEffect(()=>{
@@ -142,6 +145,17 @@ function App(){
   }
 
   return(
+
+    <>
+  
+<button
+  className="menuBtn"
+  onClick={()=>{
+    setMobileMenu(!mobileMenu)
+  }}
+>
+  ☰
+</button>
 
     <div className={`app ${dark ? 'dark' : 'light'}`}>
 
@@ -609,6 +623,11 @@ function App(){
     </div>
 
   )
+
+</>
+
+)
+
 }
 
 export default App

@@ -1,6 +1,9 @@
 import express from 'express'
 import http from 'http'
 import { Server } from 'socket.io'
+
+const process = globalThis.process
+
 import cors from 'cors'
 import multer from 'multer'
 
