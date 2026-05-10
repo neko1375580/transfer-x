@@ -2,7 +2,9 @@ import { io } from 'socket.io-client'
 import './index.css'
 import { QRCodeCanvas } from 'qrcode.react'
 import { useState, useEffect } from 'react'
-const socket = io('http://192.168.0.16:3000')
+const socket = io(
+  'https://transfer-x.onrender.com'
+)
 function App(){
 
   socket.on('connect',()=>{
@@ -54,7 +56,7 @@ function App(){
     formData.append('file',file)
 
     await fetch(
-      'http://localhost:3000/upload',
+      'https://transfer-x.onrender.com/upload',
       {
         method:'POST',
         body:formData
