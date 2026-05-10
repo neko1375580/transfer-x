@@ -482,7 +482,7 @@ function App(){
                 <div className="qrBox">
 
                   <QRCodeCanvas
-                    value="value="https://transfer-x-lyart.vercel.app""
+                    value="https://transfer-x-lyart.vercel.app"
                     size={230}
                     bgColor="#0f172a"
                     fgColor="#ffffff"
