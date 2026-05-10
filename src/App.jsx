@@ -399,46 +399,43 @@ function App(){
   sharedFiles.map((file,index)=>(
 
     <div
-      className="file"
-      key={index}
-    >
+  className="file"
+  key={index}
+>
 
-      <div className="left">
+  <div className="left">
 
-        <div className="icon">
-          📄
-        </div>
+    <div className="icon">
+      📄
+    </div>
 
-        <div>
+    <div>
 
-          <h3>
-            {file.name}
-          </h3>
+      <h3>
+        {file.name}
+      </h3>
 
-          <p>
-            {(file.size / 1024 / 1024)
-            .toFixed(2)} MB
-          </p>
-
-        </div>
-
-      </div>
-
-      <div className="right">
-
-        <a
-          href={`data:application/octet-stream;base64,${file.file}`}
-
-          download={file.name}
-
-          className="upload"
-        >
-          ⬇ Скачать
-        </a>
-
-      </div>
+      <p>
+        {file.size} MB
+      </p>
 
     </div>
+
+  </div>
+
+  <div className="right">
+
+    <a
+      href={`https://transfer-x.onrender.com/download/${file.name}`}
+      target="_blank"
+      className="upload"
+    >
+      ⬇ Скачать
+    </a>
+
+  </div>
+
+</div>
 
   ))
 

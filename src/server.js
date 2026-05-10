@@ -120,6 +120,7 @@ app.post(
       req.file.originalname
     )
 
+
     io.emit(
       'new-file',
       fileData
@@ -136,6 +137,29 @@ app.post(
 app.get('/files',(req,res)=>{
 
   res.json(uploadedFiles)
+
+})
+
+app.get('/download/:name',(req,res)=>{
+
+  const file = uploadedFiles.find(
+    item=>item.name === req.params.name
+  )
+
+  if(!file){
+
+    return res.status(404).json({
+      error:'FILE NOT FOUND'
+    })
+
+  }
+
+  res.setHeader(
+    'Content-Disposition',
+    `attachment; filename="${file.name}"`
+  )
+
+  res.send(file.buffer)
 
 })
 
