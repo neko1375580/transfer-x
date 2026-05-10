@@ -182,3 +182,95 @@
     border-right-color: var(--border);
   }
 }
+
+@media(max-width:768px){
+
+  .topPanel{
+    width:95%;
+    left:50%;
+    transform:translateX(-50%);
+    padding:15px;
+    gap:10px;
+  }
+
+  .logo{
+    font-size:22px;
+    line-height:26px;
+  }
+
+  .time{
+    font-size:18px;
+  }
+
+  .sidebar{
+    position:relative;
+    width:90%;
+    margin:120px auto 20px;
+    left:auto;
+    top:auto;
+    transform:none;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+
+    padding:20px;
+  }
+
+  .sidebar button{
+    width:100%;
+    font-size:20px;
+    padding:18px;
+  }
+
+  .devices{
+    position:relative;
+    width:90%;
+    left:auto;
+    top:auto;
+    margin:20px auto;
+  }
+
+  .card{
+    width:92%;
+    margin:20px auto;
+    padding:30px 20px;
+  }
+
+  .card h1{
+    font-size:58px;
+    line-height:60px;
+  }
+
+  .subtitle{
+    font-size:20px;
+  }
+
+  .qrBox canvas{
+    width:240px !important;
+    height:240px !important;
+  }
+
+  .upload{
+    width:100%;
+    font-size:22px;
+  }
+
+  .stats{
+    flex-direction:column;
+  }
+
+  .stat{
+    width:100%;
+  }
+
+  .file{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .right{
+    width:100%;
+  }
+
+}
