@@ -92,15 +92,17 @@ function App(){
 
     const newFiles = selected.map(file=>({
 
-      name:file.name,
+  name:file.name,
 
-      size:(
-        file.size / 1024 / 1024
-      ).toFixed(2),
+  size:(file.size / 1024 / 1024).toFixed(2),
 
-      progress:100
+  progress:100,
 
-    }))
+  url:
+    'https://transfer-x.onrender.com/files/' +
+    file.name
+
+}))
 
     setFiles(prev=>[
       ...prev,
@@ -499,34 +501,35 @@ function App(){
 
                   files.map((file,index)=>(
 
-                    <div
-                      className="file"
-                      key={index}
-                    >
+  <div
+    className="historyItem"
+    key={index}
+  >
 
-                      <div className="left">
+    <div className="historyLeft">
 
-                        <div className="icon">
-                          📄
-                        </div>
+      <span>
+        📄 {file.name}
+      </span>
 
-                        <div>
+      <b>
+        {file.size} MB
+      </b>
 
-                          <h3>
-                            {file.name}
-                          </h3>
+    </div>
 
-                          <p>
-                            {file.size} MB
-                          </p>
+    <a
+      className="downloadBtn"
+      href={file.url}
+      download={file.name}
+      target="_blank"
+    >
+      ⬇ Скачать
+    </a>
 
-                        </div>
+  </div>
 
-                      </div>
-
-                    </div>
-
-                  ))
+))
 
                 }
 

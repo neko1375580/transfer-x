@@ -83,6 +83,7 @@ io.on('connection',(socket)=>{
 })
 
 app.post(
+
   '/upload',
 
   upload.single('file'),
@@ -120,7 +121,6 @@ app.post(
       req.file.originalname
     )
 
-
     io.emit(
       'new-file',
       fileData
@@ -143,7 +143,7 @@ app.get('/files',(req,res)=>{
 app.get('/download/:name',(req,res)=>{
 
   const file = uploadedFiles.find(
-    item=>item.name === req.params.name
+    item => item.name === req.params.name
   )
 
   if(!file){
@@ -159,7 +159,9 @@ app.get('/download/:name',(req,res)=>{
     `attachment; filename="${file.name}"`
   )
 
-  res.send(file.buffer)
+  res.send(
+    Buffer.from(file.file,'base64')
+  )
 
 })
 
