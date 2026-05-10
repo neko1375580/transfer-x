@@ -333,3 +333,67 @@ z-index: 1;
   }
 
 }
+
+@media screen and (max-width:768px){
+
+  *{
+    box-sizing:border-box;
+  }
+
+  body{
+    overflow-x:hidden !important;
+  }
+
+  .app{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+  }
+
+  .sidebar{
+    position:relative !important;
+    width:92% !important;
+    left:auto !important;
+    top:auto !important;
+    margin-top:120px !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+
+    z-index:999 !important;
+  }
+
+  .devices{
+    position:relative !important;
+    width:92% !important;
+    left:auto !important;
+    top:auto !important;
+    margin:20px auto !important;
+  }
+
+  .card{
+    width:92% !important;
+    margin:20px auto !important;
+    padding:20px !important;
+
+    position:relative !important;
+    z-index:1 !important;
+  }
+
+  .card h1{
+    font-size:42px !important;
+    line-height:46px !important;
+  }
+
+  .topPanel{
+    width:95% !important;
+    left:50% !important;
+    transform:translateX(-50%) !important;
+  }
+
+  .qrBox canvas{
+    width:220px !important;
+    height:220px !important;
+  }
+
+}
