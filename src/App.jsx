@@ -189,7 +189,7 @@ function App(){
 
       </div>
 
-      <div className="sidebar">
+      <div className={`sidebar ${mobileMenu ? 'mobileOpen' : ''}`}>
 
         <button
           className={tab === 'transfer' ? 'active' : ''}
