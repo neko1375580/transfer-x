@@ -482,7 +482,7 @@ function App(){
                 <div className="qrBox">
 
                   <QRCodeCanvas
-                    value="http://192.168.0.16"
+                    value="https://transfer-x.onrender.com"
                     size={230}
                     bgColor="#0f172a"
                     fgColor="#ffffff"
