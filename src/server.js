@@ -163,6 +163,18 @@ app.get('/download/:name',(req,res)=>{
 
 })
 
+app.delete('/clear-files',(req,res)=>{
+
+  uploadedFiles = []
+
+  io.emit('files-cleared')
+
+  res.json({
+    success:true
+  })
+
+})
+
 const PORT =
   process.env.PORT || 3000
 

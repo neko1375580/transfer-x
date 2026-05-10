@@ -448,17 +448,23 @@ function App(){
                   files.length > 0 && (
 
                     <button
-                      className="clearBtn"
+  className="clearBtn"
+  onClick={async ()=>{
 
-                      onClick={()=>{
+    await fetch(
+      'https://transfer-x.onrender.com/clear-files',
+      {
+        method:'DELETE'
+      }
+    )
 
-                        setFiles([])
+    setFiles([])
+    setSharedFiles([])
 
-                      }}
-                    >
-                      Очистить список
-                    </button>
-
+  }}
+>
+  Очистить список
+</button>
                   )
 
                 }
